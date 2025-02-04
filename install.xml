@@ -1,0 +1,104 @@
+<modification>
+<name>drag and drop position</name>
+<code>websky_position</code>
+<version>3.x</version>
+<author>opencart-ir.com</author>
+<link>opencart-ir.com</link>
+
+  
+  <file path="admin/view/template/design/layout_form.twig">
+		
+			<operation>
+			<search><![CDATA[
+			{{ footer }}
+			]]></search>
+			<add position="before"><![CDATA[
+
+
+			 <script src='https://code.jquery.com/ui/1.13.2/jquery-ui.js'></script>
+  <script>
+  $( function() {
+    $( '#sortable,#sortable1,#sortable2,#sortable3,#sortable4,#sortable5' ).sortable({
+       stop: function(event, ui) {
+       var element_id = ui.item.attr('id');
+        var order_component = $(this).sortable('toArray');
+       console.log(order_component);
+      
+        var i, n;
+        for (i = 0, n = order_component.length; i < n; i++) {
+           var index = order_component[i].substring(10);
+           var sorto='\'layout_module['+index+'][sort_order]\'';
+           $('input[name='+sorto+']').val(i);   
+         }
+            
+    }
+    });
+  } );
+  </script>
+   <link rel='stylesheet' href='//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css'>
+     <style>
+     td {
+  cursor: move;
+}
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+		
+			]]></add>
+		</operation> 
+		
+	
+
+<operation>
+			<search><![CDATA[ <button type="button" onclick="$('#module-row{{ module_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button>]]></search>
+			<add position="after"><![CDATA[
+                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>		
+			]]></add>
+		</operation> 
+		
+		
+<operation>
+			<search><![CDATA[ 
+			html += '  <div class="input-group-btn"><a href="" target="_blank" type="button" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button></div></div></td>';
+	
+			]]></search>
+			<add position="replace"><![CDATA[
+			html += '  <div class="input-group-btn"><a href="" target="_blank" type="button" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></div></div></td>';
+	
+                		
+			]]></add>
+		</operation> 
+		
+		<operation>
+			<search index="1"><![CDATA[<tbody>]]></search>
+			<add position="replace" ><![CDATA[
+                <tbody id="sortable1">		
+			]]></add>
+		</operation> 
+		
+		<operation>
+			<search index="2"><![CDATA[<tbody>]]></search>
+			<add position="replace" ><![CDATA[
+                <tbody id="sortable2">		
+			]]></add>
+		</operation> 	
+		
+		
+		<operation>
+			<search index="3"><![CDATA[<tbody>]]></search>
+			<add position="replace" ><![CDATA[
+                <tbody id="sortable3">		
+			]]></add>
+		</operation> 
+		
+		<operation>
+			<search index="4"><![CDATA[<tbody>]]></search>
+			<add position="replace" ><![CDATA[
+                <tbody id="sortable4">		
+			]]></add>
+		</operation> 
+
+	</file>
+ 
+</modification>
