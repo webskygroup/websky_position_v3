@@ -86,14 +86,14 @@
 		
 		
 		<operation>
-			<search index="3"><![CDATA[<tbody>]]></search>
+			<search index="2"><![CDATA[<tbody>]]></search>
 			<add position="replace" ><![CDATA[
                 <tbody id="sortable3">		
 			]]></add>
 		</operation> 
 		
 		<operation>
-			<search index="4"><![CDATA[<tbody>]]></search>
+			<search index="1"><![CDATA[<tbody>]]></search>
 			<add position="replace" ><![CDATA[
                 <tbody id="sortable4">		
 			]]></add>
