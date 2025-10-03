@@ -14,8 +14,16 @@
 			]]></search>
 			<add position="before"><![CDATA[
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-ui-sortable-only@1.0.2/jquery-ui.min.js"></script>
 
-			 <script src='https://code.jquery.com/ui/1.13.2/jquery-ui.js'></script>
+			  <script>
+    if ($.ui && $.ui.tooltip) {
+  delete $.ui.tooltip;
+}
+if ($.fn.uitooltip) {
+  delete $.fn.uitooltip;
+}
+  </script>
   <script>
   $( function() {
     $( '#sortable,#sortable1,#sortable2,#sortable3,#sortable4,#sortable5' ).sortable({
@@ -56,19 +64,7 @@
                 <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>		
 			]]></add>
 		</operation> 
-		
-		
-<operation>
-			<search><![CDATA[ 
-			html += '  <div class="input-group-btn"><a href="" target="_blank" type="button" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button></div></div></td>';
-	
-			]]></search>
-			<add position="replace"><![CDATA[
-			html += '  <div class="input-group-btn"><a href="" target="_blank" type="button" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></div></div></td>';
-	
-                		
-			]]></add>
-		</operation> 
+		 
 		
 		<operation>
 			<search index="1"><![CDATA[<tbody>]]></search>
