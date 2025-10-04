@@ -1,7 +1,7 @@
 <modification>
 <name>drag and drop position</name>
 <code>websky_position</code>
-<version>3.x</version>
+<version>2.1.0</version>
 <author>opencart-ir.com</author>
 <link>opencart-ir.com</link>
 
@@ -65,6 +65,17 @@ if ($.fn.uitooltip) {
 			]]></add>
 		</operation> 
 		 
+<operation>
+			<search><![CDATA[ 
+			html += '  <div class="input-group-btn"><a href="" target="_blank" type="button" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button></div></div></td>';
+	
+			]]></search>
+			<add position="replace"><![CDATA[
+			html += '  <div class="input-group-btn"><a href="" target="_blank" type="button" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger btn-sm"><i class="fa fa fa-minus-circle"></i></button><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></div></div></td>';
+	
+                		
+			]]></add>
+		</operation> 
 		
 		<operation>
 			<search index="1"><![CDATA[<tbody>]]></search>
